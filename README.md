@@ -1,0 +1,1 @@
+# openvpn-x509-script
