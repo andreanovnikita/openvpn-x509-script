@@ -53,12 +53,10 @@ new_client () {
                                 ./easyrsa gen-req "$client" nopass
                                 echo
                                 echo "$client CSR создан."
-                                echo "-----------------ВЫПОЛНЕНО------------------"
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Доступ запрещен"
-                                echo "------------------ОТКАЗАНО-------------------"
+                                echo "Не найден УЦ!"
                                 fi
 
                 ;;
@@ -67,8 +65,7 @@ new_client () {
                          clear
                         number_of_clients=$(tail -n +2 /путь/к/удостоверяющему/центру/pki/index.txt | grep -c "^V")
                         if [[ "$number_of_clients" = 0 ]]; then
-                                echo
-                                echo "Ни один клиент не был выдан."
+                                echo "Не выдано."
                                 exit
                         fi
                         echo
@@ -80,11 +77,8 @@ new_client () {
                                 EASYRSA_CRL_DAYS=3650 ./easyrsa gen-crl
                                 echo
                                 echo "$client отозван. Отправьте crl.pem на сервера."
-                                echo "---------------ВЫПОЛНЕНО--------------------"
                         else
-                                echo
-                                echo "В отзыве $client отказано! Доступ запрещён."
-                                echo "---------------ОТКАЗАНО--------------------"
+                                echo "Не найден УЦ!"
                         fi
                         exit
                 ;;
@@ -107,13 +101,11 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=1 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
                                 exit
                         else
-                                echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
                 4)
@@ -133,13 +125,11 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=5 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
                                 exit
                         else
-                                echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
                 5)
@@ -159,13 +149,10 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=10 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
                                 exit
                         else
-                                echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
                 6)
@@ -185,13 +172,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=30 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
                 7)
@@ -211,13 +197,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=50 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
  
@@ -239,13 +224,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=60 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;;
                 9)
@@ -265,13 +249,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=90 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;; 
 
@@ -293,13 +276,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=180 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;;
 
@@ -320,13 +302,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=365 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;;
 
@@ -347,13 +328,12 @@ new_client () {
                                 EASYRSA_CERT_EXPIRE=3650 ./easyrsa sign-req client "$client" 
                                 new_client
                                 echo
-                                echo "$client сгенерирован и конфиг создан."
-                                echo "----------ВЫПОЛНЕНО-----------------"
+                                echo "$client сгенерирован."
+
                                 exit
                         else
                                 echo
-                                echo "В выдаче сертификата отказано. Отсутствует ca.key"
-                                echo "----------------ОТКАЗ-------------"
+                                echo "Не найден УЦ!"
                                 fi
                 ;;
 
@@ -365,12 +345,12 @@ new_client () {
                                  echo "Для выполнения операции, введите пароль УЦ." 
                                 EASYRSA_CRL_DAYS=3650 ./easyrsa gen-crl
                                 echo
-                                echo "-----------ВЫПОЛНЕНО------------"
+                                echo "Успешно"
                                 exit
                         else
                                 echo
-                                echo "В перегенерации отказано, отсутствует доступ."
-                                echo "----------------ОТКАЗ------------"
+                                echo "Не найден УЦ!"
+
                         fi
                         exit
 
@@ -385,7 +365,7 @@ new_client () {
                        ssh имя_пользователя@*имя вашего сервера* -p22 cp crl-server-int.pem /etc/openvpn/server-mikrotik/crl.pem
                        echo "Т.к. обходить sudo запрещено - перезапустите openvpn@server вручную."
                        ssh имя_пользователя@*имя вашего сервера* -p22 
-                        echo "------------ВЫПОЛНЕНО---------"
+                       echo "Успешно"
                        exit
 
 
@@ -406,13 +386,12 @@ new_client () {
               16)         clear
                          echo "Установка соединения с *имя вашего сервера*..."
                          ssh имя_пользователя@*имя вашего сервера* -p22
-                         echo "--------------ВЫПОЛНЕНО------------------"
+                         echo "Успешно"
                          exit
               ;;
 
 
               17)         clear
-                         echo "Остановка скрипта: требование пользователя"
-                         echo "-------------ОСТАНОВЛЕН------------------"
+                         echo "Выход"
 
      esac
